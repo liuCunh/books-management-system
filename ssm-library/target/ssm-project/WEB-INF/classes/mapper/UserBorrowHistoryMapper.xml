@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cg.mapper.UserBorrowHistoryMapper">
+  <resultMap id="BaseResultMap" type="com.cg.entity.UserBorrowHistory">
+    <!--@mbg.generated-->
+    <!--@Table userborrowhistory-->
+    <id column="borrow_history_id" jdbcType="BIGINT" property="borrowHistoryId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="book_id" jdbcType="INTEGER" property="bookId" />
+    <result column="borrow_date" jdbcType="TIMESTAMP" property="borrowDate" />
+    <result column="return_date" jdbcType="TIMESTAMP" property="returnDate" />
+    <result column="overdue_date_hour" jdbcType="BIGINT" property="overdueDateHour" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="review_date" jdbcType="TIMESTAMP" property="reviewDate" />
+    <result column="admin_id" jdbcType="INTEGER" property="adminId" />
+    <result column="comments" jdbcType="LONGVARCHAR" property="comments" />
+    <result column="due_date" jdbcType="TIMESTAMP" property="dueDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    borrow_history_id, user_id, book_id, borrow_date, return_date, overdue_date_hour, 
+    `status`, review_date, admin_id, comments, due_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from userborrowhistory
+    where borrow_history_id = #{borrowHistoryId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from userborrowhistory
+    where borrow_history_id = #{borrowHistoryId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="borrow_history_id" keyProperty="borrowHistoryId" parameterType="com.cg.entity.UserBorrowHistory" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into userborrowhistory (user_id, book_id, borrow_date, 
+      return_date, overdue_date_hour, `status`, 
+      review_date, admin_id, comments, 
+      due_date)
+    values (#{userId,jdbcType=INTEGER}, #{bookId,jdbcType=INTEGER}, #{borrowDate,jdbcType=TIMESTAMP}, 
+      #{returnDate,jdbcType=TIMESTAMP}, #{overdueDateHour,jdbcType=BIGINT}, #{status,jdbcType=CHAR}, 
+      #{reviewDate,jdbcType=TIMESTAMP}, #{adminId,jdbcType=INTEGER}, #{comments,jdbcType=LONGVARCHAR}, 
+      #{dueDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="borrow_history_id" keyProperty="borrowHistoryId" parameterType="com.cg.entity.UserBorrowHistory" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into userborrowhistory
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="bookId != null">
+        book_id,
+      </if>
+      <if test="borrowDate != null">
+        borrow_date,
+      </if>
+      <if test="returnDate != null">
+        return_date,
+      </if>
+      <if test="overdueDateHour != null">
+        overdue_date_hour,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="reviewDate != null">
+        review_date,
+      </if>
+      <if test="adminId != null">
+        admin_id,
+      </if>
+      <if test="comments != null">
+        comments,
+      </if>
+      <if test="dueDate != null">
+        due_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="bookId != null">
+        #{bookId,jdbcType=INTEGER},
+      </if>
+      <if test="borrowDate != null">
+        #{borrowDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="returnDate != null">
+        #{returnDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="overdueDateHour != null">
+        #{overdueDateHour,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="reviewDate != null">
+        #{reviewDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adminId != null">
+        #{adminId,jdbcType=INTEGER},
+      </if>
+      <if test="comments != null">
+        #{comments,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="dueDate != null">
+        #{dueDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cg.entity.UserBorrowHistory">
+    <!--@mbg.generated-->
+    update userborrowhistory
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="bookId != null">
+        book_id = #{bookId,jdbcType=INTEGER},
+      </if>
+      <if test="borrowDate != null">
+        borrow_date = #{borrowDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="returnDate != null">
+        return_date = #{returnDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="overdueDateHour != null">
+        overdue_date_hour = #{overdueDateHour,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=CHAR},
+      </if>
+      <if test="reviewDate != null">
+        review_date = #{reviewDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adminId != null">
+        admin_id = #{adminId,jdbcType=INTEGER},
+      </if>
+      <if test="comments != null">
+        comments = #{comments,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="dueDate != null">
+        due_date = #{dueDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where borrow_history_id = #{borrowHistoryId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cg.entity.UserBorrowHistory">
+    <!--@mbg.generated-->
+    update userborrowhistory
+    set user_id = #{userId,jdbcType=INTEGER},
+      book_id = #{bookId,jdbcType=INTEGER},
+      borrow_date = #{borrowDate,jdbcType=TIMESTAMP},
+      return_date = #{returnDate,jdbcType=TIMESTAMP},
+      overdue_date_hour = #{overdueDateHour,jdbcType=BIGINT},
+      `status` = #{status,jdbcType=CHAR},
+      review_date = #{reviewDate,jdbcType=TIMESTAMP},
+      admin_id = #{adminId,jdbcType=INTEGER},
+      comments = #{comments,jdbcType=LONGVARCHAR},
+      due_date = #{dueDate,jdbcType=TIMESTAMP}
+    where borrow_history_id = #{borrowHistoryId,jdbcType=BIGINT}
+  </update>
+  <select id="queryAllByUserId" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from userborrowhistory
+        where user_id=#{userId,jdbcType=INTEGER}
+  </select>
+</mapper>

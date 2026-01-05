@@ -1,0 +1,1 @@
+<view wx:if="{{a}}" class="bottom-menu data-v-98733e2a"><view class="menu-item stock data-v-98733e2a"> 库存：{{b}}</view><view class="{{['menu-item', 'data-v-98733e2a', d && 'collected']}}" bindtap="{{e}}">{{c}}</view><view class="menu-item data-v-98733e2a" bindtap="{{f}}"> 查看评论 </view></view>

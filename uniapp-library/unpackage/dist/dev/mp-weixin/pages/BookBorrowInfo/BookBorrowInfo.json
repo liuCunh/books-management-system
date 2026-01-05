@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我的借阅",
+  "usingComponents": {
+    "book": "../../components/Book/Book"
+  }
+}

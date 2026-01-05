@@ -1,0 +1,1 @@
+{"version":3,"file":"swiper4.js","sources":["E:/HBuilderX/plugins/uniapp-cli-vite/uniPage:/cGFnZXMvc3dpcGVyL3N3aXBlcjQudnVl"],"sourcesContent":["import MiniProgramPage from 'D:/project/wechar-app/uniapp-library/pages/swiper/swiper4.vue'\nwx.createPage(MiniProgramPage)"],"names":[],"mappings":";;;;;;;AACA,GAAG,WAAW,eAAe;"}

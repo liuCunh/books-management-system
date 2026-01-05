@@ -1,0 +1,125 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/swiper/swiper1",
+			"style": {
+				"navigationBarTitleText": "入馆须知"
+			}
+		},
+		{
+			"path": "pages/swiper/swiper2",
+			"style": {
+				"navigationBarTitleText": "违规处理办法"
+			}
+		},
+		{
+			"path": "pages/swiper/swiper3",
+			"style": {
+				"navigationBarTitleText": "自习管理规则"
+			}
+		},
+		{
+			"path": "pages/swiper/swiper4",
+			"style": {
+				"navigationBarTitleText": "读者教育与培训制度"
+			}
+		},
+		{
+			"path" : "pages/demo/demo",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/bookDetail/bookDetail",
+			"style" : 
+			{
+				"navigationBarTitleText" : "书籍详情"
+			}
+		},
+		{
+			"path" : "pages/MessageCenter/MessageCenter",
+			"style" : 
+			{
+				"navigationBarTitleText" : "消息中心"
+			}
+		},
+		{
+			"path" : "pages/ProfilePage/ProfilePage",
+			"style" : 
+			{
+				"navigationBarTitleText" : "个人中心"
+			}
+		},
+		{
+			"path" : "pages/Comment/Comment",
+			"style" : 
+			{
+				"navigationBarTitleText" : "图书评论"
+			}
+		},
+		{
+			"path" : "pages/BookCollection/BookCollection",
+			"style" : 
+			{
+				"navigationBarTitleText" : "我的收藏"
+			}
+		},
+		{
+			"path" : "pages/BookBorrowInfo/BookBorrowInfo",
+			"style" : 
+			{
+				"navigationBarTitleText" : "我的借阅"
+			}
+		},
+		{
+			"path" : "pages/UserProfile/UserProfile",
+			"style" : 
+			{
+				"navigationBarTitleText" : "我的信息"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+	},
+	"tabBar": {
+		"color": "#7a7e83",
+		"selectedColor": "#007aff",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tabbar/icon-home-before.png",
+				"selectedIconPath": "static/tabbar/icon-home-after.png",
+				"text": "主页"
+			},
+			{
+				"pagePath": "pages/MessageCenter/MessageCenter",
+				"iconPath": "static/tabbar/icon-message-before.png",
+				"selectedIconPath": "static/tabbar/icon-message-after.png",
+				"text": "消息"
+			},
+			{
+				"pagePath": "pages/ProfilePage/ProfilePage",
+				"iconPath": "static/tabbar/icon-mine-before.png",
+				"selectedIconPath": "static/tabbar/icon-mine-after.png",
+				"text": "我的"
+			}
+		]
+	}
+}

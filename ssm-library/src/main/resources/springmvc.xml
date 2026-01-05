@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+    <!--SpringMVC注解驱动，向容器中注册SpringMVC框架运行需要的组件Bean-->
+    <mvc:annotation-driven/>
+    <!-- 将控制器扫描到容器中 -->
+    <context:component-scan base-package="com.cg.controller"/>
+    <!-- 将websocket扫描到容器中 -->
+    <context:component-scan base-package="com.cg.config"/>
+
+    <!--CORS跨域全局配置-->
+    <mvc:cors>
+        <mvc:mapping path="/**"
+                     allowed-origins="http://10.162.32.38:8080, http://127.0.0.1:8080,"/>
+    </mvc:cors>
+</beans>

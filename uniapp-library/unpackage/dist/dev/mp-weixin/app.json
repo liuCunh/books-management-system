@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/swiper/swiper1",
+    "pages/swiper/swiper2",
+    "pages/swiper/swiper3",
+    "pages/swiper/swiper4",
+    "pages/demo/demo",
+    "pages/bookDetail/bookDetail",
+    "pages/MessageCenter/MessageCenter",
+    "pages/ProfilePage/ProfilePage",
+    "pages/Comment/Comment",
+    "pages/BookCollection/BookCollection",
+    "pages/BookBorrowInfo/BookBorrowInfo",
+    "pages/UserProfile/UserProfile"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7a7e83",
+    "selectedColor": "#007aff",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tabbar/icon-home-before.png",
+        "selectedIconPath": "static/tabbar/icon-home-after.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/MessageCenter/MessageCenter",
+        "iconPath": "static/tabbar/icon-message-before.png",
+        "selectedIconPath": "static/tabbar/icon-message-after.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/ProfilePage/ProfilePage",
+        "iconPath": "static/tabbar/icon-mine-before.png",
+        "selectedIconPath": "static/tabbar/icon-mine-after.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cg.mapper.BookMapper">
+  <resultMap id="BaseResultMap" type="com.cg.entity.Book">
+    <!--@mbg.generated-->
+    <!--@Table books-->
+    <id column="book_id" jdbcType="INTEGER" property="bookId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="publish_date" jdbcType="DATE" property="publishDate" />
+    <result column="stock_quantity" jdbcType="INTEGER" property="stockQuantity" />
+    <result column="description" jdbcType="LONGVARCHAR" property="description" />
+    <result column="cover_image" jdbcType="VARCHAR" property="coverImage" />
+    <result column="popularity_score" jdbcType="FLOAT" property="popularityScore" />
+    <result column="word_count" jdbcType="DECIMAL" property="wordCount" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    book_id, title, author, publish_date, stock_quantity, description, cover_image, popularity_score, 
+    word_count, category_id, category_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from view_book_category
+    where book_id = #{bookId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from books
+    where book_id = #{bookId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="book_id" keyProperty="bookId" parameterType="com.cg.entity.Book" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into books (title, author, publish_date, 
+      stock_quantity, description, cover_image, 
+      popularity_score, word_count)
+    values (#{title,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{publishDate,jdbcType=DATE}, 
+      #{stockQuantity,jdbcType=INTEGER}, #{description,jdbcType=LONGVARCHAR}, #{coverImage,jdbcType=VARCHAR}, 
+      #{popularityScore,jdbcType=FLOAT}, #{wordCount,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" keyColumn="book_id" keyProperty="bookId" parameterType="com.cg.entity.Book" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into books
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        title,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="publishDate != null">
+        publish_date,
+      </if>
+      <if test="stockQuantity != null">
+        stock_quantity,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="coverImage != null">
+        cover_image,
+      </if>
+      <if test="popularityScore != null">
+        popularity_score,
+      </if>
+      <if test="wordCount != null">
+        word_count,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="publishDate != null">
+        #{publishDate,jdbcType=DATE},
+      </if>
+      <if test="stockQuantity != null">
+        #{stockQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="coverImage != null">
+        #{coverImage,jdbcType=VARCHAR},
+      </if>
+      <if test="popularityScore != null">
+        #{popularityScore,jdbcType=FLOAT},
+      </if>
+      <if test="wordCount != null">
+        #{wordCount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cg.entity.Book">
+    <!--@mbg.generated-->
+    update books
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="publishDate != null">
+        publish_date = #{publishDate,jdbcType=DATE},
+      </if>
+      <if test="stockQuantity != null">
+        stock_quantity = #{stockQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="coverImage != null">
+        cover_image = #{coverImage,jdbcType=VARCHAR},
+      </if>
+      <if test="popularityScore != null">
+        popularity_score = #{popularityScore,jdbcType=FLOAT},
+      </if>
+      <if test="wordCount != null">
+        word_count = #{wordCount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where book_id = #{bookId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cg.entity.Book">
+    <!--@mbg.generated-->
+    update books
+    set title = #{title,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      publish_date = #{publishDate,jdbcType=DATE},
+      stock_quantity = #{stockQuantity,jdbcType=INTEGER},
+      description = #{description,jdbcType=LONGVARCHAR},
+      cover_image = #{coverImage,jdbcType=VARCHAR},
+      popularity_score = #{popularityScore,jdbcType=FLOAT},
+      word_count = #{wordCount,jdbcType=DECIMAL}
+    where book_id = #{bookId,jdbcType=INTEGER}
+  </update>
+  <select id="queryAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from view_book_category limit 10;
+  </select>
+</mapper>

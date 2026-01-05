@@ -1,0 +1,1 @@
+{"version":3,"file":"UserProfile.js","sources":["E:/HBuilderX/plugins/uniapp-cli-vite/uniPage:/cGFnZXMvVXNlclByb2ZpbGUvVXNlclByb2ZpbGUudnVl"],"sourcesContent":["import MiniProgramPage from 'D:/project/wechar-app/uniapp-library/pages/UserProfile/UserProfile.vue'\nwx.createPage(MiniProgramPage)"],"names":[],"mappings":";;;;;;;AACA,GAAG,WAAW,eAAe;"}

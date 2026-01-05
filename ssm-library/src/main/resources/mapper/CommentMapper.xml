@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cg.mapper.CommentMapper">
+  <resultMap id="BaseResultMap" type="com.cg.entity.Comment">
+    <!--@mbg.generated-->
+    <!--@Table comments-->
+    <id column="comment_id" jdbcType="INTEGER" property="commentId" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="target_user_id" jdbcType="INTEGER" property="targetUserId" />
+    <result column="book_id" jdbcType="INTEGER" property="bookId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    comment_id, content, created_at, parent_id, user_id, target_user_id, book_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from comments
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from comments
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="comment_id" keyProperty="commentId" parameterType="com.cg.entity.Comment" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into comments (content, created_at, parent_id,
+    user_id, target_user_id, book_id
+    )
+    values (#{content,jdbcType=LONGVARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, #{parentId,jdbcType=INTEGER},
+    #{userId,jdbcType=INTEGER}, #{targetUserId,jdbcType=INTEGER}, #{bookId,jdbcType=INTEGER}
+    )
+  </insert>
+  <insert id="insertSelective" keyColumn="comment_id" keyProperty="commentId" parameterType="com.cg.entity.Comment" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into comments
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="content != null">
+        content,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="targetUserId != null">
+        target_user_id,
+      </if>
+      <if test="bookId != null">
+        book_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="targetUserId != null">
+        #{targetUserId,jdbcType=INTEGER},
+      </if>
+      <if test="bookId != null">
+        #{bookId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cg.entity.Comment">
+    <!--@mbg.generated-->
+    update comments
+    <set>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="targetUserId != null">
+        target_user_id = #{targetUserId,jdbcType=INTEGER},
+      </if>
+      <if test="bookId != null">
+        book_id = #{bookId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cg.entity.Comment">
+    <!--@mbg.generated-->
+    update comments
+    set content = #{content,jdbcType=LONGVARCHAR},
+    created_at = #{createdAt,jdbcType=TIMESTAMP},
+    parent_id = #{parentId,jdbcType=INTEGER},
+    user_id = #{userId,jdbcType=INTEGER},
+    target_user_id = #{targetUserId,jdbcType=INTEGER},
+    book_id = #{bookId,jdbcType=INTEGER}
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </update>
+  <select id="queryByBookId" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List"/>
+    from comments
+    where book_id=#{bookId,jdbcType=INTEGER}
+  </select>
+</mapper>

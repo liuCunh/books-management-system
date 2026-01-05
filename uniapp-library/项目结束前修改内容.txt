@@ -1,0 +1,4 @@
+1. 启动index.vue中数据请求 	// 向后端请求books数据
+2.删除stores中books.js文件中books数据。
+2.删除stores中comments.js文件中comments数据。
+3.删除Stores中borrows.js文件中borrows数据。

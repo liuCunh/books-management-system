@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cg.mapper.NotificationMapper">
+    <resultMap id="BaseResultMap" type="com.cg.entity.Notification">
+        <!--@mbg.generated-->
+        <!--@Table notification-->
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="user_id" jdbcType="INTEGER" property="userId" />
+        <result column="type" jdbcType="VARCHAR" property="type" />
+        <result column="title" jdbcType="VARCHAR" property="title" />
+        <result column="content" jdbcType="LONGVARCHAR" property="content" />
+        <result column="related_id" jdbcType="INTEGER" property="relatedId" />
+        <result column="is_read" jdbcType="BOOLEAN" property="isRead" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, user_id, `type`, title, content, related_id, is_read, create_time
+    </sql>
+    <!-- 插入通知 -->
+    <insert id="insert" parameterType="com.cg.entity.Notification">
+        INSERT INTO notification (user_id, type, title, content, related_id, is_read, create_time)
+        VALUES (#{userId}, #{type}, #{title}, #{content}, #{relatedId}, #{isRead}, NOW())
+    </insert>
+
+    <!-- 根据用户ID查询通知列表 -->
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM notification
+        WHERE user_id = #{userId}
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 查询未读数量 -->
+    <select id="countUnread" resultType="int">
+        SELECT COUNT(*) FROM notification
+        WHERE user_id = #{userId} AND is_read = 0
+    </select>
+
+    <!-- 更新已读状态 -->
+    <update id="updateReadStatus">
+        UPDATE notification
+        SET is_read = #{status}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 全部标记已读 -->
+    <update id="updateAllReadByUserId">
+        UPDATE notification
+        SET is_read = 1
+        WHERE user_id = #{userId} AND is_read = 0
+    </update>
+</mapper>
