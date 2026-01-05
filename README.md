@@ -1,0 +1,1 @@
+前端使用uniapp的vue3编译微信小程序，后端采用Java+SSM框架
